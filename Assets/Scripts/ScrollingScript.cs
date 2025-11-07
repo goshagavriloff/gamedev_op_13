@@ -23,8 +23,7 @@ public class ScrollingScript : MonoBehaviour
 }
     void Update()
     {
-        Vector3 movement = new Vector3( speed.x * direction.x,
-                speed.y * direction.y, 0);
+        Vector3 movement = new Vector3(speed.x * direction.x, speed.y * direction.y, 0);
         movement *= Time.deltaTime; transform.Translate(movement);
         // Move the camera
         if (isLinkedToCamera)

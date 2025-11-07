@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
 			if (weapon != null)
 			{
 				weapon.Attack(false);
+				SoundEffectsHelper.Instance.MakePlayerShotSound();
 			}
 		}
     }

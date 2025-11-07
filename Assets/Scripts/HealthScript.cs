@@ -1,31 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class HealthScript : MonoBehaviour
-{
-    public int hp = 1;
+public class HealthScript : MonoBehaviour {
+	public int hp = 1;
 	public bool isEnemy = true;
 
-	public void Damage(int damageCount)
-{
-	hp -= damageCount;
+	public void Damage(int damageCount) {
+		hp -= damageCount;
 
-	if (hp <= 0)
-	{
-	Destroy(gameObject);
-	}
-}
-
-void OnTriggerEnter2D(Collider2D otherCollider)
-{
-	ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
-	if (shot != null)
-	{
-		if (shot.isEnemyShot != isEnemy)
+		if (hp <= 0)
 		{
-			Damage(shot.damage);
-			Destroy(shot.gameObject);
+			// Проверяем, существует ли Instance перед использованием
+			if (SpecialEffectsHelper.Instance != null)
+			{
+				SpecialEffectsHelper.Instance.Explosion(transform.position);
+				SoundEffectsHelper.Instance.MakeExplosionSound();
+			}
+			Destroy(gameObject);
 		}
 	}
-}
+
+	void OnTriggerEnter2D(Collider2D otherCollider) {
+		ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
+		if (shot != null)
+		{
+			if (shot.isEnemyShot != isEnemy)
+			{
+				Damage(shot.damage);
+				Destroy(shot.gameObject);
+			}
+		}
+	}
 }

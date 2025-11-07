@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 664330e8a5d169d28a99d619c9b396b2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - explosionSound: {fileID: 8300000, guid: 5b5e137785ba7393686312c119573af5, type: 3}
+  - playerShotSound: {fileID: 8300000, guid: 06854a9e375bac343a8d2642250734d7, type: 3}
+  - enemyShotSound: {fileID: 8300000, guid: 4fff18c94d3e24c988c0209189832dca, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
